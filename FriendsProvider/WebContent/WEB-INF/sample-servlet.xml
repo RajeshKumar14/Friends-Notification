@@ -42,7 +42,7 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
-			 <value>com.friends.model.Friends</value>
+			 <value>com.friends.model.User</value>
 			</list>
 		</property>
 	</bean>
@@ -57,28 +57,13 @@
 	</bean>
 	
 	<!-- UI Configurations -->
-	<!-- View Resolver Obj -->
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsps/"/>
-		<property name="suffix" value=".jsp"/>
-	</bean>
-	<!-- This is for fileuploads concept using apache commons-file upload -->
+	<!-- This is for file uploads concept using appache commons-file upload -->
 	<bean
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
 		name="multipartResolver"
 	>
 		<property name="maxUploadSize" value="20971520" />
 		<property name="maxInMemorySize" value="10485760" />
-	</bean>
-	
-	<!-- Providing XML views for excel and PDF -->
-	<bean
-		class="org.springframework.web.servlet.view.XmlViewResolver">
-		<property name="location">
-			<value>/WEB-INF/spring-views.xml</value>
-		</property>
-		<property name="order" value="0"/>
 	</bean>
 	
 	<!-- Sending Email using Spring Email -->

@@ -9,23 +9,22 @@ import com.sun.jersey.api.client.WebResource;
 
 public class RestClient {
 	
-	//============================Save Seller in Vendor DB=================================
-		public static String connectToProviderToSaveSeller(String json){
-			String url="http://localhost:8084/Online_Shopping_Cart/rest/sellerService/saveSeller";
+	//============================Save User in Provider DB=================================
+		public static String connectToProviderToSaveUser(String json){
+			String url="http://localhost:8084/FriendsProvider/rest/userService/saveUser";
 			String msg=null;
 			try {
 				Client c=Client.create();
 				WebResource r=c.resource(url);
-
 				ClientResponse cr=r.type(MediaType.APPLICATION_JSON).post(ClientResponse.class, json);
 				msg=cr.getEntity(String.class);
 
 			   } catch (Exception e) {e.printStackTrace();}
 			return msg;
 		  }
-	//===============================Update Seller in Vendor DB============================
-			public static String connectToProviderToUpdateSeller(String json){
-				String url="http://localhost:8084/Online_Shopping_Cart/rest/sellerService/updateSeller";
+	//===============================Update User in Friends Provider DB============================
+			public static String connectToProviderToUpdateUser(String json){
+				String url="http://localhost:8084/FriendsProvider/rest/userService/updateUser";
 				String msg=null;
 				try {
 					Client c=Client.create();
@@ -37,10 +36,10 @@ public class RestClient {
 				return msg;
 			  }
 	
-	//============================Login Seller in Vendor DB===============================
-			public static String connectToProviderToLoginSeller(String sellerEmail,String Pwd){
-				String url="http://localhost:8084/Online_Shopping_Cart/rest/sellerService/loginSeller";
-				String un=sellerEmail;
+	//============================Login User into Friends Provider DB===============================
+			public static String connectToProviderToLoginUser(String userEmail,String Pwd){
+				String url="http://localhost:8084/FriendsProvider/rest/userService/loginUser";
+				String un=userEmail;
 				String pwd=Pwd;
 				String json=null;
 				try {
@@ -57,4 +56,5 @@ public class RestClient {
 				   }
 				return json;
 			  }
+			
 }

@@ -1,32 +1,16 @@
 package com.friends.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 import org.hibernate.annotations.Entity;
 
 @Entity
-@Table(name="User_TAB")
 public class User {
-		@Id
-		@GeneratedValue(generator="user",strategy=GenerationType.SEQUENCE)
-		@SequenceGenerator(name="user",sequenceName="user_seq")
-		@Column(name="u_id")
+	
 		private int userId;
-		@Column(name="u_name")
 		private String userName;
-		@Column(name="u_email")
 		private String userEmail;
-		@Column(name="u_mobile")
 		private String userMobile;
-		@Column(name="birthday")
 		private String birthDay;
-		@Column(name="pwd")
 		private String pwd;
-		@Column(name="token")
 		private String token;
 		public User() {
 			super();
